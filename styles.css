@@ -97,6 +97,42 @@ ul {
 }
 
 /* ==========================================================================
+   Adding the Interactive Hover Effects to Navigation and Tabs
+   ========================================================================== */
+
+/* 1. The Navigation Bar Link */
+nav ul li a {
+    display: inline-block; /* Essential! Transforms only apply to inline-block/block elements */
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    /* This makes the grow and color shift transition buttery smooth */
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), color 0.2s ease;
+}
+
+nav ul li a:hover {
+    color: var(--pink-primary); /* Shifts color to your signature pink on hover */
+    transform: scale(1.06);     /* Micro-grow effect (6% expansion) */
+}
+
+
+/* 2. The Contact Tab Capsule Links */
+.contact-tab-capsule .tab-link {
+    display: inline-block; /* Ensures the element can scale cleanly */
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 4px 8px; /* Adds a tiny bit of breathing room around each link */
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), color 0.2s ease;
+}
+
+.contact-tab-capsule .tab-link:hover {
+    color: var(--pink-primary);
+    transform: scale(1.08); /* Slightly more pronounced scale for the contact tabs */
+}
+
+
+/* ==========================================================================
    2. NAVIGATION BAR
    ========================================================================== */
 nav {
@@ -139,9 +175,81 @@ nav ul li a.active {
 }
 
 /* ==========================================================================
+   Navigation Bar Structure (Fixed & Layered Correctly)
+   ========================================================================== */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(255, 253, 249, 0.95); /* Matches your soft cream with translucent blur */
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 1000; /* Keeps navigation safely above images */
+}
+
+.logo #portfolio-text {
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-size: 1.1rem;
+}
+
+nav ul {
+    margin-bottom: 0; /* Clears global list spacing inside headers */
+}
+
+nav ul li a {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), color 0.2s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-dark);
+    transform: scale(1.06);
+}
+
+/* ==========================================================================
+   Contact Capsule Panel Configuration
+   ========================================================================== */
+.contact-tab-capsule {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 48px;
+    font-size: 0.95rem;
+}
+
+.contact-tab-capsule .tab-link {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), color 0.2s ease;
+}
+
+.contact-tab-capsule .tab-link:hover {
+    color: var(--accent-dark);
+    transform: scale(1.08);
+}
+
+.tab-divider {
+    color: var(--border-color);
+    user-select: none;
+}
+
+/* ==========================================================================
    3. HOME PAGE COMPONENTS
    ========================================================================== */
-/* Hero Block */
+
+   /* Hero Block */
 .intro-profile {
     margin-bottom: 32px;
 }
@@ -663,4 +771,362 @@ footer {
     padding-top: 12px;
     border-top: 1px dashed var(--border-color);
     font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Scoping Home Bio Text Spacing
+   ========================================================================== */
+.short-bio {
+    margin-bottom: 48px;
+}
+
+.short-bio p {
+    font-size: 1.1rem;
+    max-width: 720px;
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Problem Area 1: Fixing the Tech Stack Lists into Editorial Clusters
+   ========================================================================== */
+.tech-stack {
+    margin-bottom: 56px;
+    background-color: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #e0e0e0);
+    padding: 32px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(107, 92, 96, 0.01);
+}
+
+.tool-header {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    color: var(--text-color, #222222);
+}
+
+.tool-group {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-dark, #555555);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Transform the vertical lists into neat horizontal tag wraps */
+.tech-stack ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 0;
+    padding: 0;          /* FIX: Wipes browser default list indent */
+    list-style: none;    /* FIX: Erases native bullet styling safely */
+}
+
+.tech-stack li {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color, #222222);
+    background-color: var(--yellow-accent, #fffcdb); /* Beautiful candle-yellow */
+    border: 1px solid rgba(43, 35, 37, 0.04);
+    padding: 6px 14px;
+    border-radius: 4px; /* Structured square-edge chips */
+}
+
+/* ==========================================================================
+   Problem Area 2: Transforming Recent Collaborations into a Premium Exhibition Banner
+   ========================================================================== */
+.highlight-project {
+    margin-bottom: 56px;
+}
+
+.highlight-title, .awards-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+
+/* FIX: Layout rules for the project banner content wrapper */
+.project-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .project-content-wrapper {
+        flex-direction: row;
+        align-items: stretch;
+    }
+    .project-card {
+        flex: 1;
+    }
+    .project-image {
+        flex: 0 0 300px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+}
+
+.project-card {
+    background-color: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-left: 4px solid var(--pink-primary, #ffb6c1); /* Thick chic pink anchor line */
+    padding: 32px;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(107, 92, 96, 0.01);
+}
+
+.project-card h3 a {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-color, #222222);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+}
+
+.project-card h3 a:hover {
+    color: var(--accent-dark, #555555);
+}
+
+.project-meta-tags {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-dark, #777777);
+    margin: 8px 0 12px 0;
+}
+
+/* Keeps overlay card highly legible over darker environment photos */
+.spotlight-placard-overlay {
+    position: relative;
+    z-index: 2;
+    background-color: #FFFFFF; /* Forces crisp white backdrop */
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 24px;
+    max-width: 100%;
+    box-shadow: 0 12px 32px rgba(107, 92, 96, 0.08);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ==========================================================================
+   Problem Area 3: Making the Home Awards Section Look Balanced
+   ========================================================================== */
+/* FIX: Changed selector to lowercase .awards to match corrected HTML */
+.awards h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--pink-primary, #ffb6c1);
+    padding-bottom: 8px;
+}
+
+.award-item {
+    background-color: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 6px;
+    padding: 0; /* Clears padding so content and images align to walls */
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 16px rgba(107, 92, 96, 0.01);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mobile defaults for nested content */
+.award-item-content {
+    padding: 24px;
+}
+
+.award-media-wrapper {
+    width: 100%;
+    height: 200px;
+}
+
+/* Desktop layout rules for the awards row panels */
+@media (min-width: 768px) {
+    .award-item {
+        flex-direction: row;
+        height: 200px;
+    }
+    
+    .award-item-content {
+        flex: 1;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    
+    .award-media-wrapper {
+        flex: 0 0 260px;
+        height: 100%;
+        border-left: 1px solid var(--border-color, #e0e0e0);
+    }
+}
+
+.award-item h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+    line-height: 1.3;
+}
+
+img.awards-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    border-radius: 0;
+}
+
+/* ==========================================================================
+   Problem Area 2: Transforming Recent Collaborations into a Premium Exhibition Banner
+   ========================================================================== */
+.highlight-project {
+    margin-bottom: 56px;
+}
+
+.highlight-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+
+.spotlight-banner-link {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+/* Immersive Viewport Layout Frame */
+.spotlight-viewport-container {
+    position: relative;
+    width: 100%;
+    min-height: 420px; /* Gives the project image plenty of space to breathe */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 24px rgba(107, 92, 96, 0.03);
+    display: flex;
+    align-items: flex-end; /* Keeps placard anchored to the bottom on mobile layout */
+    padding: 20px;
+}
+
+/* Background Media Lens Controls */
+.spotlight-image-lens {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #000000; /* Dark canvas backstop */
+}
+
+.spotlight-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.85;
+    filter: grayscale(30%); /* Gives an editorial, uniform feel at rest */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                filter 0.4s ease, 
+                opacity 0.4s ease;
+}
+
+/* High-End Gallery Placard Overlay Box */
+.spotlight-placard-overlay {
+    position: relative;
+    z-index: 2;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 24px;
+    max-width: 100%;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Creative Tech Pink Anchor Bar styling */
+.placard-accent-bracket {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--pink-primary);
+    border-radius: 6px 0 0 6px;
+}
+
+.placard-context-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--pink-primary);
+    margin: 0 0 6px 0;
+}
+
+.placard-project-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 4px 0;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.placard-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin: 12px 0 16px 0;
+    opacity: 0.9;
+}
+
+.placard-action-btn {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+}
+
+/* Immersive Hover States */
+.spotlight-banner-link:hover .spotlight-bg-img {
+    transform: scale(1.03); /* Soft parallax expansion */
+    filter: grayscale(0%);  /* Unveils the vivid full colors of your environment capture */
+    opacity: 0.95;
+}
+
+.spotlight-banner-link:hover .spotlight-placard-overlay {
+    transform: translateY(-4px); /* Placard floats slightly on card hover */
+}
+
+.spotlight-banner-link:hover .placard-action-btn {
+    color: var(--pink-primary);
+}
+
+/* Desktop optimization layout rules */
+@media (min-width: 768px) {
+    .spotlight-viewport-container {
+        min-height: 480px;
+        padding: 40px;
+        align-items: center; /* Centers the placard right in the middle space */
+    }
+    
+    .spotlight-placard-overlay {
+        max-width: 460px; /* Locks text column box so image background stays highly visible */
+        padding: 32px;
+    }
 }
