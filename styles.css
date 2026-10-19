@@ -84,7 +84,6 @@ p {
 a {
     color: var(--text-color);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
 }
 
 a:hover {
@@ -210,6 +209,9 @@ nav ul li a {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), color 0.2s ease;
+    text-decoration: none;
+    border-bottom: none; /* Smooth underline transition on hover */
+    outline: none; /* Removes default focus outline for cleaner look */
 }
 
 nav ul li a:hover {
