@@ -333,3 +333,334 @@ footer {
     color: var(--text-muted);
     letter-spacing: 0.02em;
 }
+
+/* ==========================================================================
+   6. CASE STUDY DETAIL & GRID LAYOUTS
+   ========================================================================== */
+.case-study-container {
+    padding-top: 20px;
+}
+
+/* Back Link Utilities */
+.back-link-wrapper {
+    margin-bottom: 24px;
+}
+
+.back-link-wrapper a {
+    color: var(--accent-dark);
+    font-weight: 600;
+}
+
+/* Main Two-Column Side-by-Side Split */
+.case-study-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 32px;
+}
+
+@media (min-width: 768px) {
+    .case-study-grid {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .case-study-main {
+        flex: 1;
+    }
+    
+    .case-study-sidebar {
+        flex: 0 0 300px;
+        position: sticky;
+        top: 100px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+}
+
+/* Challenges/Hurdles Card Blocks */
+.challenge-block {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--pink-primary); /* Chic blush edge accent */
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(107, 92, 96, 0.01);
+}
+
+.challenge-block h3 {
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+}
+
+.challenge-block p strong {
+    color: var(--accent-dark);
+}
+
+/* Sidebar Specification Card Panel */
+.meta-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 24px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(107, 92, 96, 0.01);
+}
+
+.meta-item {
+    margin-top: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.meta-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.meta-item h4 {
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+.meta-item p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+/* Sidebar Project Aims Panel */
+.project-aims-card {
+    background-color: var(--pink-light); /* Soft blush background layer */
+    border-color: var(--pink-primary);
+}
+
+.aim-item {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.aim-number {
+    font-family: monospace;
+    font-weight: 700;
+    color: var(--accent-dark);
+    font-size: 1.2rem;
+    background-color: var(--card-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    height: fit-content;
+    border: 1px solid var(--border-color);
+}
+
+.aim-item h4 {
+    margin-top: 0;
+    margin-bottom: 6px;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--text-color);
+    font-size: 1.05rem;
+}
+
+.aim-item p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   7. IMAGES, CAROUSELS & INTERACTION HOVERS
+   ========================================================================== */
+.case-study-hero-media {
+    margin: 32px 0;
+}
+
+.case-study-img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+/* Horizontal Gallery Cards layout */
+.horizontal-scroll-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.gallery-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(107, 92, 96, 0.01);
+}
+
+.gallery-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+
+.gallery-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Clean UI Fade Overlay for Technical Specifics */
+.image-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 253, 249, 0.96); /* Elegant soft blurred cream tint */
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.gallery-image-wrapper:hover .image-hover-overlay {
+    opacity: 1;
+}
+
+.overlay-text h4 {
+    margin-top: 0;
+    margin-bottom: 4px;
+    font-size: 0.85rem;
+    color: var(--accent-dark);
+}
+
+.overlay-text p {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.overlay-text p:last-child {
+    margin-bottom: 0;
+}
+
+.card-caption {
+    padding: 12px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    background-color: #FFFDF9;
+}
+
+/* ==========================================================================
+   8. FULL-WIDTH TEXT BLOCKS (UX & REFLECTION)
+   ========================================================================== */
+.ux-case-study-fullwidth, .reflection-section-fullwidth {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-color);
+}
+
+.ux-intro, .reflection-intro {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-bottom: 32px;
+}
+
+/* UX Process Layout Rows */
+.ux-process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.ux-step {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 28px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(107, 92, 96, 0.01);
+}
+
+.ux-step h3 {
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    color: var(--text-color);
+}
+
+.ux-step p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* Reflection Aim Cards Grid Block */
+.reflection-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.reflection-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(107, 92, 96, 0.01);
+}
+
+@media (min-width: 768px) {
+    .reflection-card {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .reflection-meta {
+        flex: 0 0 220px;
+    }
+    
+    .reflection-body {
+        flex: 1;
+    }
+}
+
+.aim-reference {
+    font-family: monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-color);
+    background-color: var(--yellow-accent); /* Warm yellow highlight indicator */
+    padding: 2px 8px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.reflection-meta h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0;
+}
+
+.status-critique {
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+}
+
+.future-fix {
+    margin-bottom: 0;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border-color);
+    font-size: 0.95rem;
+}
